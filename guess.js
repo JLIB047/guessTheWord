@@ -1,19 +1,40 @@
-const sports = ['rugby', 'soccer', 'cricket', 'hurling', 'golf', 'polo', 'rowing']; 
+ const categories = {
+    sports : ['football', 'rugby', 'soccer', 'cricket', 'basketball', 'baseball',
+        'polo', 'tennis', 'lacrosse', 'golf'], 
 
-//getting random words
-let randInt = Math.floor(Math.random() * sports.length);
+    animals : ['dolphin', 'raccoon', 'squirrel', 'lamb', 'chicken', 'salmon', 
+        'moose', 'whale', 'gorilla', 'frog'], 
 
-let randomSport = sports[randInt]; 
-console.log(randomSport);
+    food : ['pizza', 'burgers', 'fries', 'banana', 'oranges', 'dumplings', 'noodles', 
+    'calzone', 'icecream', 'pudding'],
+
+};
+
+// acccessing random category 
+const randomProp = (obj) => {
+    const randomProp = Object.keys(obj)
+    [Math.random() * Object.keys(obj).length | 0]; 
+
+    return randomProp; 
+} ; 
+
+const prop = randomProp(categories); 
+console.log(prop);  
+//getting random words from random prop. 
+const randomInt = Math.floor(Math.random() * prop.length); 
+
+console.log(randomInt); 
+
+const randomWord = prop[randomInt]; 
+console.log(randomWord);
+
 
 //store guessed letters 
-let guessedList = []; 
-
-//document.getElementById('guessed-letters').textContent = guessedList; 
+let guessedList = [];  
 
 // for initial display word blanks
 let displayWord = ""; 
-for(let i = 0; i < randomSport.length; i++){; 
+for(let i = 0; i < random.length; i++){; 
     displayWord += "_ ";
 }; 
 
@@ -62,4 +83,4 @@ function guessLetter() {
         alert('Congratulations! You guessed the word correctly! '); 
     } 
 
-}
+}; 
