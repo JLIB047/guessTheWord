@@ -1,3 +1,5 @@
+ //Add functionality, guess count, limit guess 
+ 
  const categories = {
     sports : ['football', 'rugby', 'soccer', 'cricket', 'basketball', 'baseball',
         'polo', 'tennis', 'lacrosse', 'golf'], 
@@ -18,15 +20,18 @@ const randomProp = (obj) => {
     return randomProp; 
 } ; 
 
-const prop = randomProp(categories); 
-console.log(prop);  
+const prop = randomProp(categories);
+
+document.getElementById('hint-display').textContent = prop; 
+//console.log(prop);  
 //getting random words from random prop. 
 const randomInt = Math.floor(Math.random() * prop.length); 
 
-console.log(randomInt); 
-
-const randomWord = prop[randomInt]; 
+//console.log(randomInt); 
+// variable holding a random word picked from the categories object 
+const randomWord = categories[prop][randomInt]; 
 console.log(randomWord);
+
 
 
 //store guessed letters 
@@ -34,7 +39,7 @@ let guessedList = [];
 
 // for initial display word blanks
 let displayWord = ""; 
-for(let i = 0; i < random.length; i++){; 
+for(let i = 0; i < randomWord.length; i++){; 
     displayWord += "_ ";
 }; 
 
@@ -68,9 +73,9 @@ function guessLetter() {
     //update the word display based on the guessed letters 
     let updatedDisplay = "";
     let allLettersGuessed = true; 
-    for(let i = 0; i < randomSport.length; i ++){
-        if(guessedList.includes(randomSport[i])){
-            updatedDisplay += randomSport[i] + " ";
+    for(let i = 0; i < randomWord.length; i ++){
+        if(guessedList.includes(randomWord[i])){
+            updatedDisplay += randomWord[i] + " ";
         } else {
             updatedDisplay += "_ "; 
             allLettersGuessed = false; 
